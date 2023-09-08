@@ -1,4 +1,6 @@
-### Hi there 👋
+### Profile
+
+I have been programming professionally since 1997.
 
 <!--
 **nakedible/nakedible** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
