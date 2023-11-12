@@ -5,4 +5,5 @@ template = 'home.html'
 lang = 'en'
 +++
 
-Words about you
+I write code, among other things.
+
