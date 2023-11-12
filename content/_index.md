@@ -7,3 +7,10 @@ lang = 'en'
 
 I write code, among other things.
 
+## Cloud
+
+## Cryptography
+
+## Security
+
+## Rust
