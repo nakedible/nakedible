@@ -43,6 +43,6 @@ My expertise spans:
 
 ## Beyond the Code
 
-I love swinging a sword, in more ways than one. Take that as you will.
+I love swinging a sword and dungeons, in more ways than one. Take that as you will.
 
 Feel free to reach out if you've got something to discuss. However, no service level guarantees are provided for unsolicited messages.
