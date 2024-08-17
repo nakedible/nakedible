@@ -7,7 +7,7 @@
 
 base_url = "https://nakedible.org"      # Domain name of your website
 title = "Nakedible"
-description = "Code whisperer, payment sorcerer, cloud tamer. Building secure castles in the digital sky."
+description = "Personal website for Nuutti Kotivuori"
 default_language = "en"
 theme = "serene"
 output_dir = "public"
@@ -43,7 +43,7 @@ anchors = "on"
 
 name = "Nuutti Kotivuori"                         # Your name
 id = "nakedible"                           # Your id / username / handle
-bio = "xxxx"                          # Your bio
+bio = "Code whisperer, payment sorcerer, cloud tamer. Secure castles in the digital sky."                          # Your bio
 avatar = "img/avatar.png"             # Your avatar
 links = [                             # Your links
     { name = "GitHub", icon = "github", url = "https://github.com/nakedible" },
