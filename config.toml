@@ -7,7 +7,7 @@
 
 base_url = "https://nakedible.org"      # Domain name of your website
 title = "Nakedible"
-description = "xxxx xxxx xxxx"
+description = "Code whisperer, payment sorcerer, cloud tamer. Building secure castles in the digital sky."
 default_language = "en"
 theme = "serene"
 output_dir = "public"
