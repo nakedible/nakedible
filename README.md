@@ -12,9 +12,10 @@ My expertise spans:
 - **Payment Systems**: From card payments to eCommerce, I've navigated the
   complex world of financial transactions already for 15 years. Nobody who's
   seen behind the veil will sleep well again.
-- **Cloud Architecture**: If it's not in version control, it doesn't exist. All
-  cloud applications needs to be built natively from the outside in, rather than
-  starting from the code to figure out how it should be hosted.
+- **Cloud Architecture**: If it's not in version control, it doesn't exist, and
+  doubly so if it's infrastructure. All cloud applications needs to be built
+  natively from the outside in, rather than starting from the code to figure out
+  how it should be hosted.
 - **Security & Cryptography**: I believe in security by design, and making it
   right rather than to rely on defense in depth. PCI DSS is a swamp, so it's an
   all too familiar fight to balance real world security with compliance rules.
