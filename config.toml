@@ -43,7 +43,7 @@ anchors = "on"
 
 name = "Nuutti Kotivuori"                         # Your name
 id = "nakedible"                           # Your id / username / handle
-bio = "Code whisperer, payment sorcerer, cloud tamer. Secure castles in the digital sky."                          # Your bio
+bio = "Code whisperer, payment sorcerer, cloud tamer. Building secure castles in the digital sky."                          # Your bio
 avatar = "img/avatar.png"             # Your avatar
 links = [                             # Your links
     { name = "GitHub", icon = "github", url = "https://github.com/nakedible" },
@@ -51,7 +51,11 @@ links = [                             # Your links
     { name = "Email", icon = "email", url = "mailto:naked@iki.fi" },
 ]
 
-homepage_layout = "about"             # "about" | "list"
+homepage_layout = "about"             # "about" | "list | "recent"
+
+recent_max = 15
+recent_more = true
+recent_more_text = "more »"
 
 sections = [
     { name = "articles", path = "/articles", is_external = false },
@@ -84,3 +88,7 @@ outdate_alert_text_after = " days ago and may be out of date."
 
 footer_copyright = "© 2024 Nuutti Kotivuori"
 footer_credits = true                 # Whether to show "powered by zola and serene" in footer
+
+not_found_title = "404"
+not_found_error_text = "Not Found"
+not_found_recover_text = "« back to home »"
