@@ -1,6 +1,7 @@
 +++
 title = "Architecting for multi cloud is a mistake"
 date = 2023-11-12
+draft = true
 
 [taxonomies]
 categories = ["cloud"]

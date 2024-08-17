@@ -4,5 +4,5 @@ cloud-native world we live in today. And let me tell you, it's just memes all
 the way down.
 
 I have a personal [website](https://nakedible.org) and I write
-[articles](https://nakedible.org/blog) sometimes. You might find stuff of
+[articles](https://nakedible.org/articles) sometimes. You might find stuff of
 interest there.
