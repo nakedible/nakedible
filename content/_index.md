@@ -26,8 +26,9 @@ My expertise spans:
 - **Security & Cryptography**: I believe in security by design, and making it
   right rather than to rely on defense in depth. PCI DSS is a swamp, so it's an
   all too familiar fight to balance real world security with compliance rules.
-- **Entrepreneurship**: I've founded and successfully sold companies, and it's
-  always in my heart, but currently simply at a salaried position.
+- **Entrepreneurship**: I've founded companies and had them fail. But then the
+  biggest FinTech company in Europe bought the successful ones, and they've
+  managed to keep me around since.
 
 ## Tech I Love
 
@@ -37,12 +38,15 @@ My expertise spans:
   hotness. They have a ton of really cool stuff that doesn't get nearly enough
   attention.
 - **Cryptography**: Fascinated by elegant cryptographic protocols with real
-  world usage rather than the underlying algorithms. J-PAKE and Keccak have a special place in my heart.
+  world usage rather than the underlying algorithms. J-PAKE and Keccak have a
+  special place in my heart.
 - **Challenges**: You'll find me waking up at 7 AM on Christmas Eve to solve
   Advent of Code. Also, screw timezones.
 
 ## Beyond the Code
 
-I love swinging a sword and dungeons, in more ways than one. Take that as you will.
+I love swinging a sword and dungeons, in more ways than one. Take that as you
+will.
 
-Feel free to reach out if you've got something to discuss. However, no service level guarantees are provided for unsolicited messages.
+Feel free to reach out if you've got something to discuss. However, no service
+level guarantees are provided for unsolicited messages.
