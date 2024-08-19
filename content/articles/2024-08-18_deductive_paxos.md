@@ -1,6 +1,5 @@
 +++
 title = "Understanding Paxos Consensus Algorithm: Deductive approach"
-date = 2024-08-18
 draft = true
 
 [taxonomies]

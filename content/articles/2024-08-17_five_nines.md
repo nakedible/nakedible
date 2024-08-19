@@ -1,6 +1,5 @@
 +++
 title = "Achiving 99.999% availability for an API on AWS"
-date = 2024-08-17
 draft = true
 
 [taxonomies]
