@@ -1,0 +1,22 @@
+sequence-diagram
+
+typeface: clean
+
+Client [icon: monitor, color: gray]
+Master [icon: server, color: green]
+Replica 1 [icon: server, color: blue]
+Replica 2 [icon: server, color: blue]
+
+Client > Master: Write request
+activate Master
+Client < Master: Write response
+deactivate Master
+Master > Replica 1: Replicate write
+activate Replica 1
+Master > Replica 2: Replicate write
+activate Replica 2
+Master < Replica 1: Replicate response
+deactivate Replica 1
+Master < Replica 2: Replicate response
+deactivate Replica 2
+
