@@ -1,5 +1,3 @@
-<p><a target="_blank" href="https://app.eraser.io/workspace/KoSBBMGFSpKInsUpJSNv" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
-
 +++
 title = "Redis + Strong consistency = AWS MemoryDB"
 
@@ -7,17 +5,17 @@ title = "Redis + Strong consistency = AWS MemoryDB"
 categories = ["cloud"]
 +++
 
-![Redis + strong consistenc = MemoryDB](/.eraser/KoSBBMGFSpKInsUpJSNv___SdSlyWapPJMYH3JhtxQ9thJXxgb2___---figure---ADhfw0BDtjGb3A5Y3lptz---figure---eg-YAOFiGtaR1iw307CAbw.png "Redis + strong consistenc = MemoryDB")
+![Redis + strong consistenc = MemoryDB](title.png "Redis + strong consistency = MemoryDB")
 
-[﻿Redis](https://redis.io/) (or the fully open source [﻿Valkey](https://valkey.io/)) is a very versatile and fast in-memory data store. Read operations take microseconds, and write operations generally take 1 millisecond. s take microseconds, and wrIt started as a very simple key-value database, but it has picked a huge number of commands and features over the years. There's plenty of different datatypes, including streams and JSON. There's also embedded functions written in Lua, which are fully transactionally isolated, so it's possible to do complex transactional operations with the minimum of data transfer. It's no longer just a cache, it's a full blown database that is suitable for a wide variety of uses. In short, Redis is an extremely useful tool for any fast state you might require that cannot be locally stored in memory.
+[Redis](https://redis.io/) (or the fully open source [Valkey](https://valkey.io/)) is a very versatile and fast in-memory data store. Read operations take microseconds, and write operations generally take 1 millisecond. s take microseconds, and wrIt started as a very simple key-value database, but it has picked a huge number of commands and features over the years. There's plenty of different datatypes, including streams and JSON. There's also embedded functions written in Lua, which are fully transactionally isolated, so it's possible to do complex transactional operations with the minimum of data transfer. It's no longer just a cache, it's a full blown database that is suitable for a wide variety of uses. In short, Redis is an extremely useful tool for any fast state you might require that cannot be locally stored in memory.
 
 The biggest drawback for using Redis for anything else than a simple in-memory cache is that it doesn't provide strong consistency. Under normal operation, when a master is stable, Redis is very consistent as everything happens just in-memory and it is single threaded. But everything being in-memory means that Redis will acknowledge successful writes before they have been persisted anywhere, which means that if the master goes down, you might lose just written data. Redis can be configured with a number of different options for persistence, but most commonly it writes to an AOF (append-only-file) once per second.
 
-![Redis flow](/.eraser/KoSBBMGFSpKInsUpJSNv___SdSlyWapPJMYH3JhtxQ9thJXxgb2___---figure---OBh2tASk6t-E_s53CEev----figure---X7LcqShiielZgcIUWzpdOw.png "Redis flow")
+![Redis flow](redis-flow.png "Redis flow")
 
 To combat this, there is the `WAIT` command which can be used to wait until a certain number of replicas have acknowledged the write, which means that at least it's not up to just a single machine anymore. This doesn't mean that it would be synchronized to disk necessarily (for example if all replicas lose power / crash at the same time), but if they are independent enough it's quite likely that at least one replica will persist the data to disk. But even then there are no actual guarantees that a replica being promoted would have all the data. It tries to promote the replica with the most up-to-date state, but given that failure scenarios are often quite complex, it's still just best-effort consistency. In the worst case, a replica could be promoted that doesn't have _any_ data, so the whole database would start from scratch.
 
-![Redis + wait flow](/.eraser/KoSBBMGFSpKInsUpJSNv___SdSlyWapPJMYH3JhtxQ9thJXxgb2___---figure---x3lCzs9AfHh6LIIoyABCc---figure---je1SqMqk416SMjWe31mt-Q.png "Redis + wait flow")
+![Redis + wait flow](redis-wait-flow.png "Redis + wait flow")
 
 But what if I told you there's an alternative (if you are on AWS)...
 
@@ -36,7 +34,7 @@ Write operations in Redis will complete usually in 1-2 milliseconds. For MemoryD
 
 This figure is also pretty much exactly the optimal result one can theoretically achieve, while keeping the same availability approach. In order for the data to be durably persisted, it needs to be stored in multiple data centers. In AWS this means multiple availability zones inside a region (an availability zone might actually have multiple data centers, close by, as they are huge). These availability zones are physically located at least a few kilometers away from each other and a maximum of 100 kilometers. The networking round-trip latency is less than 2 milliseconds, but can't be instant, because the speed of light isn't instant. Hence if Redis takes 1 millisecond to process the operation, and getting the same operation delivered to two other datacenters takes a 2 millisecond round-trip, we arrive exactly to the 3 millisecond minimum time.
 
-![AWS Region / AZs](/.eraser/KoSBBMGFSpKInsUpJSNv___SdSlyWapPJMYH3JhtxQ9thJXxgb2___---figure---G15XhtawPxyk0T2J26XnF---figure---uKefXoALLJEYSMGdyjOfGA.png "AWS Region / AZs")
+![AWS Region / AZs](region.png "AWS Region / AZs")
 
 ### Implementation
 _So how do they do it?_ They add a strongly consistent transactional log into the normal Redis codebase, where the implementation of the log is AWS secret sauce. The transactional log is placed after the normal in-memory operation for Redis, so once the operation is done, the results of the operation are committed into the log and will end up getting relayed to the replicas. And each replica will always ensure it has the entire log replayed before it can become a master.
@@ -45,7 +43,7 @@ But if this were done naively, then every write operation would end up taking th
 
 What they actually do is that they only delay the sending of the acknowledgement message after a command until they have received an acknowledgement from the transactional log. This means that the database itself can actually perform operations at full speed in the in-memory database, and only the clients are delayed until there is confirmation that the data has been durably persisted and will be strongly consistent. This is quite a cool idea, and it's easy to reason about the performance knowing this.
 
-![MemoryDB flow](/.eraser/KoSBBMGFSpKInsUpJSNv___SdSlyWapPJMYH3JhtxQ9thJXxgb2___---figure---twXFUAmJdEoagGaTeiNOk---figure---VZOQTnPsKt4omsHZXbLsJQ.png "MemoryDB flow")
+![MemoryDB flow](memorydb-flow.png "MemoryDB flow")
 
 ### Compatibility
 Everything else about Redis stays the same, as everything is first executed in-memory and then written to the transaction log. So we know it supports all the same stuff as Redis does without having to reimplement everything and keeping all the quirks that we've already gotten used to (unliked some... krhm... DocumentDB). And they've added the same JSON support that's currently part of the not-so-free Redis offering.
@@ -64,14 +62,4 @@ MemoryDB allows us to get pricing that's based on the dataset size, and not the 
 
 Now if they would just add cross-region replication...
 
-
-<!-- eraser-additional-content -->
-## Diagrams
-<!-- eraser-additional-files -->
-<a href="/content/articles/2024-08-16_memorydb-sequence-diagram-1.eraserdiagram" data-element-id="QL_922PS3D-DmIRTYUES-"><img src="/.eraser/KoSBBMGFSpKInsUpJSNv___SdSlyWapPJMYH3JhtxQ9thJXxgb2___---diagram----e830e02d129aa37e38fb3fe12aae5fbf.png" alt="" data-element-id="QL_922PS3D-DmIRTYUES-" /></a>
-<a href="/content/articles/2024-08-16_memorydb-sequence-diagram-2.eraserdiagram" data-element-id="mmicnQ_KqYdtGVoA3QGk6"><img src="/.eraser/KoSBBMGFSpKInsUpJSNv___SdSlyWapPJMYH3JhtxQ9thJXxgb2___---diagram----9c71ffc1d46e30a86ca69346775d28c4.png" alt="" data-element-id="mmicnQ_KqYdtGVoA3QGk6" /></a>
-<a href="/content/articles/2024-08-16_memorydb-sequence-diagram-3.eraserdiagram" data-element-id="d7nqZaePV52A6oMbOc0qK"><img src="/.eraser/KoSBBMGFSpKInsUpJSNv___SdSlyWapPJMYH3JhtxQ9thJXxgb2___---diagram----4974d00124b9840995e400c9b91b8d8a.png" alt="" data-element-id="d7nqZaePV52A6oMbOc0qK" /></a>
-<a href="/content/articles/2024-08-16_memorydb-flowchart-4.eraserdiagram" data-element-id="gTiKhKuzgces__-oN9J8S"><img src="/.eraser/KoSBBMGFSpKInsUpJSNv___SdSlyWapPJMYH3JhtxQ9thJXxgb2___---diagram----1a66e78580b07ac987520974615e85c8.png" alt="" data-element-id="gTiKhKuzgces__-oN9J8S" /></a>
-<!-- end-eraser-additional-files -->
-<!-- end-eraser-additional-content -->
 <!--- Eraser file: https://app.eraser.io/workspace/KoSBBMGFSpKInsUpJSNv --->
