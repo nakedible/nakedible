@@ -19,4 +19,7 @@ Master < Replica 1: Replicate response
 deactivate Replica 1
 Master < Replica 2: Replicate response
 deactivate Replica 2
+later {
+  Master > Master: Sync to AOF
+}
 

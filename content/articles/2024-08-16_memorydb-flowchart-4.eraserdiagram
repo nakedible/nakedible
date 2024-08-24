@@ -1,0 +1,11 @@
+flowchart-diagram
+
+AWS Region [icon:aws-region] {
+  AZ 1 [icon: aws-availability-zone]
+  AZ 2 [icon: aws-availability-zone]
+  AZ 3 [icon: aws-availability-zone]
+}
+
+AZ 1 <> AZ 2: 1-2 ms
+AZ 2 <> AZ 3: 1-2 ms
+AZ 3 <> AZ 1: 1-2 ms
