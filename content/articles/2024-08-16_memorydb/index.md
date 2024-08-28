@@ -43,9 +43,9 @@ But if this were done naively, then every write operation would end up taking th
 
 What they actually do is that they only delay the sending of the acknowledgement message after a command until they have received an acknowledgement from the transactional log. This means that the database itself can actually perform operations at full speed in the in-memory database, and only the clients are delayed until there is confirmation that the data has been durably persisted and will be strongly consistent. This is quite a cool idea, and it's easy to reason about the performance knowing this.
 
-*How do I know all this?* AWS published an actual [research paper on MemoryDB](https://www.amazon.science/publications/amazon-memorydb-a-fast-and-durable-memory-first-cloud-database) where they explain all this. I'm just making it worse by explaining it in my own words.
-
 ![MemoryDB flow](memorydb-flow.png "MemoryDB flow")
+
+*How do I know all this?* AWS published an actual [research paper on MemoryDB](https://www.amazon.science/publications/amazon-memorydb-a-fast-and-durable-memory-first-cloud-database) where they explain all this. I'm just making it worse by explaining it in my own words.
 
 ### Compatibility
 Everything else about Redis stays the same, as everything is first executed in-memory and then written to the transaction log. So we know it supports all the same stuff as Redis does without having to reimplement everything and keeping all the quirks that we've already gotten used to (unliked some... krhm... [DocumentDB](https://docs.aws.amazon.com/documentdb/latest/developerguide/compatibility.html)). And they've added the same JSON support that's currently part of the not-so-free Redis offering.
