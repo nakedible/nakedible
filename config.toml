@@ -6,8 +6,8 @@
 #=========================================================================================
 
 base_url = "https://nakedible.org"      # Domain name of your website
-title = "Nakedible"
-description = "Personal website for Nuutti Kotivuori"
+title = "Nakedible's Digital Castle"    # Title of your website
+description = "Personal website for Nuutti Kotivuori. Code whisperer, payment sorcerer, cloud tamer. Building secure castles in the digital sky."  # Description of your website
 default_language = "en"
 theme = "serene"
 output_dir = "public"
