@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuutti Kotivuori &ndash; Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+        @media print {
+            @page {
+                size: auto;
+                margin: 0;
+            }
+
+            html, body {
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+            #page-wrapper {
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+                height: 100%;
+                zoom: 69%;
+            }
+
+            main {
+                height: 100%;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            #portrait {
+                content: url(photo-available-on-request.svg);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 font-sans" style="font-family: 'Inter', sans-serif;">
+    <div id="page-wrapper" class="container mx-auto p-6 mt-8 max-w-6xl">
+        <main itemscope itemtype="https://schema.org/Person" class="flex flex-col md:flex-row bg-white shadow-lg">
+            <div class="w-full md:w-2/3 px-8 py-6">
+                <header class="mb-6">
+                    <h1 itemprop="name" class="text-4xl font-bold text-gray-800 uppercase">Nuutti Kotivuori</h1>
+                    <p itemprop="jobTitle" class="text-2xl text-sky-700">Distinguished Engineer</p>
+                    <ul class="flex flex-wrap list-disc list-inside gap-x-4">
+                        <li><span class="text-gray-600">Email: </span><a itemprop="email" href="mailto:naked@iki.fi" class="hover:underline">naked@iki.fi</a></li>
+                        <li><span class="text-gray-600">Location: </span><span>Espoo, Finland</span></li>
+                        <li><span class="text-gray-600">Personal Website: </span><a itemprop="sameAs" href="https://nakedible.org/" class="hover:underline">nakedible.org</a></li>
+                        <li><span class="text-gray-600">GitHub: </span><a href="https://github.com/nakedible/" class="hover:underline">github.com/nakedible</a></li>
+                        <li><span class="text-gray-600">LinkedIn: </span><a itemprop="sameAs" href="https://www.linkedin.com/in/naked" class="hover:underline">www.linkedin.com/in/naked</a></li>
+                    </ul>
+                </header>
+
+                <section class="mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-2 uppercase border-b-4 border-sky-700">Professional Summary</h2>
+                    <p>Visionary technology leader with three decades of experience, adept at rapidly mastering new industries and technologies. Proven track record in architecting secure, scalable systems and driving innovation across diverse sectors. Excels in formulating technological strategies, leading large-scale integrations, and founding successful tech ventures. Combines deep technical knowledge with strategic business acumen to deliver cutting-edge solutions in cloud computing, cybersecurity, and emerging technologies.</p>
+                </section>
+
+                <section class="mb-6">
+                    <h2 class="text-2xl font-semibold mb-2 uppercase border-b-4 border-sky-700">Experience</h2>
+
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold border-gray-400">Nexi Digital Finland</h3>
+
+                        <div class="mb-2">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-medium text-sky-700">Lead Strategic Technology Architect, Nordics &amp; DACH</h4>
+                                <p class="text-gray-600">July 2024 &ndash; Present</p>
+                            </div>
+                            <p>Tasked with developing comprehensive technology strategy for Nexi Group across Nordic and DACH regions. Leading design and execution of key IT projects and resolving critical technological challenges. Providing strategic insights on technology choices to align with business objectives across the group.</p>
+                        </div>
+
+                        <div class="mb-2">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-medium text-sky-700">Head of Strategy, Connect</h4>
+                                <p class="text-gray-600">October 2020 &ndash; August 2024</p>
+                            </div>
+                            <p>Led technological strategy for payment terminals across Nordic and DACH regions. Developed and successfully pitched a five-year product and technology roadmap, adopted group-wide by Nexi. Instituted quarterly architecture workshops, fostering collaborative design practices. Drove innovation in payment solutions, aligning technological advancements with business objectives.</p>
+                        </div>
+
+                        <div class="mb-2">
+                            <div class="flex justify-between items-center">
+                                <h4 class="text-lg font-medium text-sky-700">Head of Connect</h4>
+                                <p class="text-gray-600">January 2020 &ndash; September 2020</p>
+                            </div>
+                            <p>Led integration of Poplapay and Poplatek into Nexi's payment terminals development hub, overseeing Nordic and DACH operations. Managed transformation of diverse team, leading 170 employees and subcontractors. Established distinctive development culture and implemented matrix organizational structure, enhancing efficiency and team performance.</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold border-gray-400">Poplapay / Poplatek Payments Oy</h3>
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-lg font-medium text-sky-700">Partner</h4>
+                            <p class="text-gray-600">March 2015 &ndash; January 2020</p>
+                        </div>
+                        <p>Co-founded and scaled Poplapay, delivering comprehensive payment terminal and processing solutions. Pioneered cloud-native AWS backend architecture with PCI DSS Level 1 certification and innovative Lua-based terminal architecture. Grew to a team of ten, achieving significant Nordic market penetration. Led company to successful acquisition by Nexi Group (formerly Nets).</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold border-gray-400">Poplatek Oy</h3>
+                        <div class="flex justify-between items-center">
+                            <h4 class="text-lg font-medium text-sky-700">Partner</h4>
+                            <p class="text-gray-600">January 2010 &ndash; January 2020</p>
+                        </div>
+                        <p>Co-founded professional services firm specializing in payment industry solutions. Grew from five to thirty employees through technical excellence and innovative problem-solving. Developed expertise in payment technologies, establishing reputation for complex fintech projects. Company's success led to acquisition by Nexi Group (formerly Nets).</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="text-xl font-semibold">Previous Roles</h3>
+                        <ul class="list-disc list-inside">
+                            <li>Co-founder at VPNease Oy (September 2008 &ndash; December 2009)</li>
+                            <li>Co-founder at Codebay Oy (July 2006 &ndash; December 2012)</li>
+                            <li>Software Engineer at Stinghorn (March 2004 &ndash; April 2006)</li>
+                            <li>Subcontractor at Valimo Wireless (2005 &ndash; 2006)</li>
+                            <li>Software Engineer at Netseal (January 2002 &ndash; March 2004)</li>
+                            <li>Software Engineer at SmartTrust (February 2000 &ndash; December 2001)</li>
+                            <li>Trainee at Nokia Mobile Phones (October 1997 &ndash; August 1998)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="mb-6">
+                    <h2 class="text-2xl font-semibold mb-2 uppercase border-b-4 border-sky-700">Education</h2>
+                    <div class="flex justify-between items-center">
+                        <p>Päivölä School of Mathematics</p>
+                        <p class="text-gray-600">1996 &ndash; 1997</p>
+                    </div>
+                </section>
+            </div>
+
+            <aside class="w-full md:w-1/3 bg-sky-700 p-8 text-sky-100">
+                <div class="mb-6">
+                    <img id="portrait" src="click-to-show-photo.svg" alt="Nuutti Kotivuori" class="w-48 h-48 rounded-full mx-auto mb-4" onclick="this.src='portrait.jpg';">
+                </div>
+
+                <section class="mb-6">
+                    <h2 class="text-2xl font-semibold text-sky-100 mb-2 uppercase border-b-4 border-sky-00">Areas of Expertise</h2>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Software Development:</strong> 25+ years designing and implementing scalable systems across diverse industries, using a wide array of languages and technologies.</li>
+                        <li><strong>Payment Systems:</strong> Expert-level knowledge in card payments, including terminals, eCommerce, acquiring, and issuing, with 15+ years of experience.</li>
+                        <li><strong>Cloud Architecture:</strong> 10+ years building cloud-native applications with infrastructure-as-code. Expert in AWS, with familiarity of other public cloud platforms.</li>
+                        <li><strong>Security & Cryptography:</strong> Strong background in adversarial security thinking, cryptographic protocol implementation, and compliance certifications across various sectors.</li>
+                        <li><strong>Product Strategy:</strong> Expertise in developing product visions, go-to-market strategies, and launching innovative tech products, aligning technical capabilities with business objectives.</li>
+                    </ul>
+                </section>
+
+                <section class="mb-6">
+                    <h2 class="text-2xl font-semibold text-sky-100 mb-2 uppercase border-b-4 border-sky-100">Skills</h2>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Languages:</strong> Rust, Python, TypeScript/JavaScript, C/C++, Java, Lua, Functional (OCaml, Haskell)</li>
+                        <li><strong>Cloud & Infrastructure:</strong> AWS (expert), GCP, Azure, Kubernetes, Terraform, CloudFormation, CDK</li>
+                        <li><strong>Cryptography:</strong> TLS, IPsec, HSMs, PKI, X.509, PGP, NaCl, SHA-3, zk-SNARK</li>
+                        <li><strong>Security & Compliance:</strong> PCI DSS, PCI PIN, GDPR, NIST, OWASP, Secure SDLC</li>
+                        <li><strong>Databases:</strong> PostgreSQL, MySQL, DynamoDB, Redis, Elasticsearch, MongoDB, Parquet, Iceberg</li>
+                        <li><strong>Development Practices:</strong> DevSecOps, Pipelines, Guardrails, Observability, Chaos Engineering</li>
+                        <li><strong>Embedded:</strong> ARM, ESP32, micropython, FreeRTOS, PCB design</li>
+                    </ul>
+                </section>
+            </aside>
+        </main>
+
+        <footer class="text-center text-gray-500 text-sm mt-8 no-print">
+            <p>
+                Download PDF:
+                <a class="underline" href="nuutti-kotivuori-resume-a4.pdf" target="_blank">A4</a>
+                /
+                <a class="underline" href="nuutti-kotivuori-resume-letter.pdf" target="_blank">Letter</a>.
+                Last updated: September 2024
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
