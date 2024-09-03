@@ -14,12 +14,29 @@
 
         @media print {
             @page {
+                size: auto;
                 margin: 0;
             }
 
-            body {
+            html, body {
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
+                width: 100vw;
+                height: 100vw;
+            }
+            
+            body {
+                overflow: hidden;
+            }
+
+            #page-wrapper {
+                margin: 0;
+                padding: 0;
+                border: none;
+                box-shadow: none;
+                background: none;
+                overflow: hidden;
+                zoom: 69%;
             }
 
             .no-print {
@@ -30,7 +47,7 @@
 </head>
 
 <body class="bg-gray-100 font-sans" style="font-family: 'Inter', sans-serif;">
-    <div class="container mx-auto p-6 my-8 max-w-6xl">
+    <div id="page-wrapper" class="container mx-auto p-6 my-8 max-w-6xl">
         <main itemscope itemtype="https://schema.org/Person" class="flex flex-col md:flex-row bg-white shadow-lg">
             <div class="w-full md:w-2/3 p-6">
                 <header class="mb-6">
@@ -47,7 +64,7 @@
 
                 <section class="mb-6">
                     <h2 class="text-2xl font-semibold text-gray-700 mb-2 uppercase border-b-4 border-sky-700">Professional Summary</h2>
-                    <p class="text-gray-600">With nearly three decades of professional programming experience, I've witnessed the evolution of the digital landscape from the early days of the internet to today's cloud-native world. I specialize in crafting robust, secure systems at the intersection of payments, cloud computing, and cutting-edge security practices.</p>
+                    <p>Visionary technology leader with three decades of experience, adept at rapidly mastering new industries and technologies. Proven track record in architecting secure, scalable systems and driving innovation across diverse sectors. Excels in formulating technological strategies, leading large-scale integrations, and founding successful tech ventures. Combines deep technical knowledge with strategic business acumen to deliver cutting-edge solutions in cloud computing, cybersecurity, and emerging technologies.</p>
                 </section>
 
                 <section class="mb-6">
@@ -61,7 +78,7 @@
                                 <h4 class="text-lg font-medium text-sky-700">Lead Strategic Technology Architect, Nordics &amp; DACH</h4>
                                 <p class="text-gray-600">July 2024 &ndash; Present</p>
                             </div>
-                            <p>Tasked with developing a comprehensive technology strategy for Nexi Group across Nordic and DACH regions. Responsible for leading the design and execution of key IT projects and resolving critical technological challenges. Expected to serve as a thought leader, providing strategic insights and guidance on technology choices to align with business objectives across the group.</p>
+                            <p>Tasked with developing comprehensive technology strategy for Nexi Group across Nordic and DACH regions. Leading design and execution of key IT projects and resolving critical technological challenges. Providing strategic insights on technology choices to align with business objectives across the group.</p>
                         </div>
 
                         <div class="mb-2">
@@ -69,7 +86,7 @@
                                 <h4 class="text-lg font-medium text-sky-700">Head of Strategy, Connect</h4>
                                 <p class="text-gray-600">October 2020 &ndash; August 2024</p>
                             </div>
-                            <p>Led technological strategy for payment terminals across Nordic and DACH regions. Developed and successfully pitched a five-year product and technology roadmap, which was adopted group-wide by Nexi. Instituted quarterly architecture workshops, fostering collaborative design practices among all developers. Drove innovation in payment solutions, aligning technological advancements with business objectives.</p>
+                            <p>Led technological strategy for payment terminals across Nordic and DACH regions. Developed and successfully pitched a five-year product and technology roadmap, adopted group-wide by Nexi. Instituted quarterly architecture workshops, fostering collaborative design practices. Drove innovation in payment solutions, aligning technological advancements with business objectives.</p>
                         </div>
 
                         <div class="mb-2">
@@ -77,7 +94,7 @@
                                 <h4 class="text-lg font-medium text-sky-700">Head of Connect</h4>
                                 <p class="text-gray-600">January 2020 &ndash; September 2020</p>
                             </div>
-                            <p>Led the integration of Poplapay and Poplatek into Nexi's payment terminals development hub, overseeing operations across Nordic and DACH regions. Managed the transformation and unification of a diverse team, ultimately leading a workforce of 170 employees and subcontractors. Established a distinctive development culture and identity for the newly formed hub. Designed and implemented a matrix organizational structure, separating technical leadership from traditional management to enhance efficiency and team performance.</p>
+                            <p>Led integration of Poplapay and Poplatek into Nexi's payment terminals development hub, overseeing Nordic and DACH operations. Managed transformation of diverse team, leading 170 employees and subcontractors. Established distinctive development culture and implemented matrix organizational structure, enhancing efficiency and team performance.</p>
                         </div>
                     </div>
 
@@ -87,7 +104,7 @@
                             <h4 class="text-lg font-medium text-sky-700">Partner</h4>
                             <p class="text-gray-600">March 2015 &ndash; January 2020</p>
                         </div>
-                        <p>Co-founded and scaled Poplapay, a spin-off from Poplatek Oy, delivering comprehensive payment terminal and processing solutions to merchants. Pioneered a cutting-edge, cloud-native backend architecture on AWS, achieving early PCI DSS Level 1 certification. Developed an innovative Lua-based terminal architecture, setting new industry standards for flexibility and security. Grew the company from a solo venture to a team of ten, with significant market penetration across the Nordic region. Successfully led the company to acquisition by Nexi Group (formerly Nets), marking substantial return on investment and industry recognition.</p>
+                        <p>Co-founded and scaled Poplapay, delivering comprehensive payment terminal and processing solutions. Pioneered cloud-native AWS backend architecture with PCI DSS Level 1 certification and innovative Lua-based terminal architecture. Grew to a team of ten, achieving significant Nordic market penetration. Led company to successful acquisition by Nexi Group (formerly Nets).</p>
                     </div>
 
                     <div class="mb-4">
@@ -96,28 +113,8 @@
                             <h4 class="text-lg font-medium text-sky-700">Partner</h4>
                             <p class="text-gray-600">January 2010 &ndash; January 2020</p>
                         </div>
-                        <p>Co-founded Poplatek Oy, a professional services firm specializing in payment industry solutions. Played a crucial role in the company's growth from five to thirty employees through technical excellence and innovative problem-solving. Developed deep expertise in payment technologies, contributing to the company's reputation as a trusted consultant for complex fintech projects. The company's success and industry standing ultimately led to its acquisition by Nexi Group (formerly Nets).</p>
+                        <p>Co-founded professional services firm specializing in payment industry solutions. Grew from five to thirty employees through technical excellence and innovative problem-solving. Developed expertise in payment technologies, establishing reputation for complex fintech projects. Company's success led to acquisition by Nexi Group (formerly Nets).</p>
                     </div>
-
-                    <!--
-                    <div class="mb-4">
-                        <h3 class="text-xl font-semibold border-gray-400">VPNease Oy</h3>
-                        <div class="flex justify-between items-center">
-                            <h4 class="text-lg font-medium text-sky-700">Partner</h4>
-                            <p class="text-gray-600">September 2008 &ndash; December 2009</p>
-                        </div>
-                        <p>Co-founded VPNease Oy, developing an innovative standalone Live CD-based L2TP/IPsec VPN server solution for Windows clients. While the product did not achieve commercial success, the venture provided valuable insights into market dynamics, product development, and the intricacies of launching a tech startup. This experience contributed significantly to my understanding of balancing technical innovation with market demands in entrepreneurial ventures.</p>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-xl font-semibold border-gray-400">Codebay Oy</h3>
-                        <div class="flex justify-between items-center">
-                            <h4 class="text-lg font-medium text-sky-700">Partner</h4>
-                            <p class="text-gray-600">July 2006 &ndash; December 2012</p>
-                        </div>
-                        <p>Co-founded Codebay Oy, delivering professional software development services while strategically reinvesting profits into proprietary product development. This venture balanced client project delivery with innovation goals, establishing valuable industry connections that facilitated future entrepreneurial endeavors.</p>
-                    </div>
-                    -->
 
                     <div class="mb-4">
                         <h3 class="text-xl font-semibold">Previous Roles</h3>
@@ -150,26 +147,31 @@
                 <section class="mb-6">
                     <h2 class="text-2xl font-semibold text-sky-100 mb-2 uppercase border-b-4 border-sky-00">Areas of Expertise</h2>
                     <ul class="list-disc list-inside">
-                        <li><strong>Software Development:</strong> 25+ years of experience in software development and architecture, with a vast variety of languages and technologies.</li>
-                        <li><strong>Payment Systems:</strong> 15+ years of experience in card payments, including terminals, eCommerce, acquiring and issuing.</li>
-                        <li><strong>Cloud Architecture:</strong> Building cloud native applications with infrastructure-as-code. Expert level knowledge of AWS services over 10+ years, as well as familiarity with other public clouds.</li>
-                        <li><strong>Security & Cryptography:</strong> Adversarial thinking in security and proficiency in implementing cryptographic protocols. Intimate familiarity with different compliance certifications.</li>
+                        <li><strong>Software Development:</strong> 25+ years designing and implementing scalable systems across diverse industries, using a wide array of languages and technologies.</li>
+                        <li><strong>Payment Systems:</strong> Expert-level knowledge in card payments, including terminals, eCommerce, acquiring, and issuing, with 15+ years of experience.</li>
+                        <li><strong>Cloud Architecture:</strong> 10+ years building cloud-native applications with infrastructure-as-code. Expert in AWS, with familiarity of other public cloud platforms.</li>
+                        <li><strong>Security & Cryptography:</strong> Strong background in adversarial security thinking, cryptographic protocol implementation, and compliance certifications across various sectors.</li>
+                        <li><strong>Product Strategy:</strong> Expertise in developing product visions, go-to-market strategies, and launching innovative tech products, aligning technical capabilities with business objectives.</li>
                     </ul>
                 </section>
 
                 <section class="mb-6">
-                    <h2 class="text-2xl font-semibold text-sky-100 mb-2 uppercase border-b-4 border-sky-100">Technical Proficiencies</h2>
+                    <h2 class="text-2xl font-semibold text-sky-100 mb-2 uppercase border-b-4 border-sky-100">Skills</h2>
                     <ul class="list-disc list-inside">
-                        <li><strong>Languages:</strong> Rust, TypeScript, JavaScript, Python, Lua, C, C++, Java, OCaml, Haskell, Perl</li>
-                        <li><strong>Cloud Platforms:</strong> AWS, GCP, Azure, CloudFlare, CloudFormation, CDK, Terraform, Kubernetes</li>
-                        <li><strong>Cryptography:</strong> TLS, IPsec, NaCL, SHA-3, zk-SNARK, Merkle</li>
+                        <li><strong>Languages:</strong> Rust, TypeScript/JavaScript, Python, C/C++, Java, Lua, Functional (OCaml, Haskell)</li>
+                        <li><strong>Cloud & Infrastructure:</strong> AWS (expert), GCP, Azure, Kubernetes, Terraform, CloudFormation, CDK</li>
+                        <li><strong>Cryptography:</strong> TLS, IPsec, HSMs, PKI, X.509, PGP, NaCl, SHA-3, zk-SNARK</li>
+                        <li><strong>Security & Compliance:</strong> PCI DSS, PCI PIN, GDPR, NIST, OWASP, Secure SDLC</li>
+                        <li><strong>Databases:</strong> PostgreSQL, MySQL, DynamoDB, Redis, Elasticsearch, MongoDB, Parquet, Iceberg</li>
+                        <li><strong>Development Practices:</strong> DevSecOps, Pipelines, Guardrails, Observability, Chaos Engineering</li>
+                        <li><strong>Embedded:</strong> ARM, ESP32, micropython, FreeRTOS, PCB design</li>
                     </ul>
                 </section>
             </aside>
         </main>
 
         <footer class="text-center text-gray-500 text-sm mt-8 no-print">
-            <p>Last updated: August 2024</p>
+            <p>Last updated: September 2024</p>
         </footer>
     </div>
 </body>
