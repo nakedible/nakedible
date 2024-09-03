@@ -21,22 +21,22 @@
             html, body {
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
-                width: 100vw;
-                height: 100vw;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
             }
             
-            body {
-                overflow: hidden;
-            }
-
             #page-wrapper {
                 margin: 0;
                 padding: 0;
-                border: none;
-                box-shadow: none;
-                background: none;
-                overflow: hidden;
-                zoom: 69%;
+                max-width: 100%;
+                height: 100%;
+                zoom: 71%;
+            }
+
+            main {
+                height: 100%;
             }
 
             .no-print {
@@ -47,9 +47,9 @@
 </head>
 
 <body class="bg-gray-100 font-sans" style="font-family: 'Inter', sans-serif;">
-    <div id="page-wrapper" class="container mx-auto p-6 my-8 max-w-6xl">
+    <div id="page-wrapper" class="container mx-auto p-6 mt-8 max-w-6xl">
         <main itemscope itemtype="https://schema.org/Person" class="flex flex-col md:flex-row bg-white shadow-lg">
-            <div class="w-full md:w-2/3 p-6">
+            <div class="w-full md:w-2/3 px-8 py-6">
                 <header class="mb-6">
                     <h1 itemprop="name" class="text-4xl font-bold text-gray-800 uppercase">Nuutti Kotivuori</h1>
                     <p itemprop="jobTitle" class="text-2xl text-sky-700">Lead Strategic Technology Architect</p>
@@ -139,14 +139,14 @@
                 </section>
             </div>
 
-            <aside class="w-full md:w-1/3 bg-sky-700 p-6 text-sky-100">
+            <aside class="w-full md:w-1/3 bg-sky-700 p-8 text-sky-100">
                 <div class="mb-6">
                     <img src="portrait.jpg" alt="Nuutti Kotivuori" class="w-48 h-48 rounded-full mx-auto mb-4">
                 </div>
 
                 <section class="mb-6">
                     <h2 class="text-2xl font-semibold text-sky-100 mb-2 uppercase border-b-4 border-sky-00">Areas of Expertise</h2>
-                    <ul class="list-disc list-inside">
+                    <ul class="list-disc list-inside space-y-2">
                         <li><strong>Software Development:</strong> 25+ years designing and implementing scalable systems across diverse industries, using a wide array of languages and technologies.</li>
                         <li><strong>Payment Systems:</strong> Expert-level knowledge in card payments, including terminals, eCommerce, acquiring, and issuing, with 15+ years of experience.</li>
                         <li><strong>Cloud Architecture:</strong> 10+ years building cloud-native applications with infrastructure-as-code. Expert in AWS, with familiarity of other public cloud platforms.</li>
@@ -157,7 +157,7 @@
 
                 <section class="mb-6">
                     <h2 class="text-2xl font-semibold text-sky-100 mb-2 uppercase border-b-4 border-sky-100">Skills</h2>
-                    <ul class="list-disc list-inside">
+                    <ul class="list-disc list-inside space-y-2">
                         <li><strong>Languages:</strong> Rust, TypeScript/JavaScript, Python, C/C++, Java, Lua, Functional (OCaml, Haskell)</li>
                         <li><strong>Cloud & Infrastructure:</strong> AWS (expert), GCP, Azure, Kubernetes, Terraform, CloudFormation, CDK</li>
                         <li><strong>Cryptography:</strong> TLS, IPsec, HSMs, PKI, X.509, PGP, NaCl, SHA-3, zk-SNARK</li>
@@ -171,7 +171,13 @@
         </main>
 
         <footer class="text-center text-gray-500 text-sm mt-8 no-print">
-            <p>Last updated: September 2024</p>
+            <p>
+                Download PDF:
+                <a class="underline" href="nuutti-kotivuori-resume-a4.pdf" target="_blank">A4</a>
+                /
+                <a class="underline" href="nuutti-kotivuori-resume-letter.pdf" target="_blank">Letter</a>.
+                Last updated: September 2024
+            </p>
         </footer>
     </div>
 </body>
