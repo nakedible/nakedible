@@ -1,6 +1,5 @@
 +++
 title = "Are \"FROM scratch\" images incompatible with vulnerability scans?"
-draft = true
 
 [taxonomies]
 categories = ["security"]
