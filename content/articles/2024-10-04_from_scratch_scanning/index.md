@@ -33,7 +33,7 @@ But even more disturbingly, it seems that just including the programming languag
 
 The solution is to fake the image to look like a supported OS image by including the release files that the vulnerability scanner is looking for, as well as the package state database for the image. Ideally, you should use these files directly from the image you are compiling the software on, as then it will track all the dependencies of any package that might've contributed to your binary. However, in practice, the compiler image might contain a ton of irrelevant packages, which means there's a ton of vulnerabilities reported that are not relevant for your software. The good solution to this is to minimize your compiler image to only contain necessary packages, but simply truncating the package manager state file to a single package also works.
 
-## Blah blah, show me how it's done!
+## Yap yap yap, show me how it's done!
 
 For Alpine Linux:
 
