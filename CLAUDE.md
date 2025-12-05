@@ -1,0 +1,139 @@
+# Nakedible.org - Personal Website
+
+Personal website and blog for Nuutti Kotivuori, built with Zola static site generator using the Serene theme.
+
+## Quick Reference
+
+```bash
+# Development server (includes drafts)
+./serve.sh
+
+# Build the site
+zola build
+
+# Rebuild Tailwind CSS (for resume template changes)
+./styles.sh
+
+# Generate resume PDFs (requires prior zola build)
+./pdf.sh
+```
+
+## Project Structure
+
+```
+content/
+├── _index.md                    # Homepage content (includes personal info: name, bio, avatar, links)
+├── articles/
+│   ├── _index.md               # Articles section config (includes display options)
+│   └── YYYY-MM-DD_slug/        # Individual articles
+│       ├── index.md            # Article content
+│       └── *.png               # Article images
+└── resume/
+    ├── _index.md               # Resume page (placeholder, not used)
+    └── *.pdf                   # Generated resume PDFs
+
+templates/
+├── resume.html                 # Custom resume template (standalone HTML)
+└── _custom_css.html           # Theme color customizations
+
+static/                         # Static assets (icons, JS, CSS)
+themes/serene/                  # Serene theme v5.5.0 (git submodule)
+```
+
+## Writing Articles
+
+Create a new article directory under `content/articles/` with format `YYYY-MM-DD_slug/`:
+
+```markdown
++++
+title = "Article Title"
+
+[taxonomies]
+categories = ["cloud"]  # or "security", "fun"
+
+[extra]
+toc = true
+comment = false
++++
+
+Article content in markdown...
+```
+
+Set `draft = true` in frontmatter to hide from production builds (drafts visible with `./serve.sh`).
+
+## Configuration
+
+- **config.toml** - Zola and theme configuration (global settings)
+- **content/_index.md** - Homepage personal info (name, bio, avatar, links)
+- **content/articles/_index.md** - Blog section settings (categorized, toc, copy, etc.)
+- **tailwind.config.js** - Tailwind CSS config (scans `templates/*.html`)
+- **tailwind.css** - Tailwind source file
+
+## Theme
+
+Uses [Serene v5.5.0](https://github.com/isunjn/serene) theme as a git submodule.
+
+Theme docs: https://github.com/isunjn/serene/blob/latest/USAGE.md
+
+Custom colors defined in `templates/_custom_css.html`.
+
+### Upgrading Theme
+
+```bash
+cd themes/serene
+git fetch origin
+git checkout v<version>
+cd ../..
+# Check CHANGELOG.md for breaking changes before updating config
+```
+
+## Resume
+
+The resume (`templates/resume.html`) is a standalone HTML page using Tailwind CSS, not the standard Zola templating. After editing:
+
+1. Run `./styles.sh` to rebuild Tailwind CSS
+2. Run `zola build` to generate the site
+3. Run `./pdf.sh` to regenerate PDF versions
+
+## Development Environment
+
+Uses GitHub Codespaces with:
+- Rust devcontainer image
+- Zola v0.21.0
+- Cloudflare Wrangler (for deployment)
+- Node.js (for Tailwind and PDF generation)
+
+## Deployment
+
+Site deploys via **Cloudflare Pages** (configured in UI, not wrangler.toml):
+
+- **Production URL**: https://nakedible.org
+- **Preview URL**: https://nakedible.pages.dev
+- **Production branch**: `master`
+- **Automatic deployments**: Enabled on push
+
+### Cloudflare Pages Build Configuration
+
+| Setting | Value |
+|---------|-------|
+| Build command | `[ "$PROD" -eq 1 ] && zola build \|\| zola build --base-url "$CF_PAGES_URL"` |
+| Build output | `public` |
+| Build system version | 3 |
+| Build cache | Enabled |
+| Compatibility date | Nov 17, 2025 |
+
+### Environment Variables
+
+| Name | Value | Purpose |
+|------|-------|---------|
+| `PROD` | `1` | Triggers production build (no base-url override) |
+| `ZOLA_VERSION` | `0.21.0` | Zola version for Cloudflare's build environment |
+
+The `PROD` flag differentiates production from preview deployments. When `PROD=1`, Zola uses the `base_url` from `config.toml`. For preview deployments, it overrides with `$CF_PAGES_URL` so links work on preview URLs.
+
+## Build Output
+
+- `public/` - Generated site (gitignored)
+- `static/hl-light.css`, `static/hl-dark.css` - Generated syntax highlighting CSS
+- `static/styles.css` - Generated Tailwind CSS (committed)
+- `content/resume/*.pdf` - Generated resume PDFs (committed)
