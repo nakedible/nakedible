@@ -18,16 +18,7 @@ echo "Press Ctrl+C to stop"
 echo
 
 rebuild() {
-    echo "==> Rebuilding Tailwind CSS..."
-    npx @tailwindcss/cli -i tailwind.css -o static/styles.css -m
-
-    echo "==> Rebuilding site..."
-    zola build
-
-    echo "==> Regenerating PDFs..."
-    npx html-export-pdf-cli -i public/resume/index.html -o content/resume/nuutti-kotivuori-resume-a4.pdf -s A4
-    npx html-export-pdf-cli -i public/resume/index.html -o content/resume/nuutti-kotivuori-resume-letter.pdf -s Letter
-
+    ./resume-build.sh
     echo "==> Done at $(date +%H:%M:%S)"
     echo
 }
