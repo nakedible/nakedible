@@ -5,7 +5,7 @@
 
 set -xe
 
-npx tailwindcss@3 -i tailwind.css -o static/styles.css -m
+npx @tailwindcss/cli -i tailwind.css -o static/styles.css -m
 zola build
 npx html-export-pdf-cli -i public/resume/index.html -o content/resume/nuutti-kotivuori-resume-a4.pdf -s A4
 npx html-export-pdf-cli -i public/resume/index.html -o content/resume/nuutti-kotivuori-resume-letter.pdf -s Letter

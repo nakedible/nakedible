@@ -6,14 +6,13 @@
 # Watches for changes to:
 # - templates/resume.html
 # - tailwind.css
-# - tailwind.config.js
 #
 # On change: rebuilds Tailwind CSS and regenerates PDFs
 
 set -e
 
 echo "Starting resume watch mode..."
-echo "Watching: templates/resume.html, tailwind.css, tailwind.config.js"
+echo "Watching: templates/resume.html, tailwind.css"
 echo "Press Ctrl+C to stop"
 echo
 
@@ -28,14 +27,14 @@ rebuild
 
 # Watch for changes using inotifywait if available, otherwise poll
 if command -v inotifywait >/dev/null 2>&1; then
-    while inotifywait -q -e modify templates/resume.html tailwind.css tailwind.config.js; do
+    while inotifywait -q -e modify templates/resume.html tailwind.css; do
         rebuild
     done
 else
     echo "(inotifywait not found, using polling every 2s)"
     LAST_HASH=""
     while true; do
-        HASH=$(cat templates/resume.html tailwind.css tailwind.config.js 2>/dev/null | md5sum)
+        HASH=$(cat templates/resume.html tailwind.css 2>/dev/null | md5sum)
         if [ "$HASH" != "$LAST_HASH" ] && [ -n "$LAST_HASH" ]; then
             rebuild
         fi
