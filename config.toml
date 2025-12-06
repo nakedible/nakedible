@@ -42,8 +42,8 @@ anchors = "on"
 [extra]
 
 sections = [
-    { name = "articles", path = "/articles", is_external = false },
-    { name = "resume", path = "/resume", is_external = false },
+    { name = "articles", path = "/articles/", is_external = false },
+    { name = "resume", path = "/resume/", is_external = false },
 ]
 blog_section_path = "/articles"
 

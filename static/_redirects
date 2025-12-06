@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects
+# Ensure trailing slashes for consistent relative URL resolution
+
+/resume   /resume/   301
+/articles /articles/ 301
