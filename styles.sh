@@ -2,4 +2,4 @@
 
 set -xe
 
-npx tailwindcss -i tailwind.css -o static/styles.css -m
+npx @tailwindcss/cli -i tailwind.css -o static/styles.css -m
