@@ -9,6 +9,10 @@ I decided to invoke [Betteridge's law of headlines](https://en.wikipedia.org/wik
 
 No, `FROM scratch` Docker images are not incompatible with vulnerability scans, but it requires a bit of effort to make them work.
 
+{% note(title="Update (March 2025)") %}
+AWS has since added native support for scanning "scratch" base images in [Amazon Inspector](https://aws.amazon.com/about-aws/whats-new/2025/03/amazon-inspector-container-base-images-enhanced-detections/). The workaround below isn't really necessary any more, but may still be useful with some other scanners.
+{% end %}
+
 ## Huh? Vulnerability scanning?
 
 A bit of context on the whole ordeal. Modern software development is riddled with tons of dependencies. In the good old days, all software dependended only on other packages published for the same distribution, and all packages were separately packaged for each distribution. It was a rule that no bundled packages were allowed, so if you upgraded the installed version of some library on your system, it would affect all the applications that depended on it. Then came the the different package managers separately for programming languages – probably Perl's [CPAN](https://www.cpan.org/) was the one of the first ones, but then similarily for Python, Ruby, and so on. And finally Node.js broke the camel's back with the proliferation of `node_modules` directories in every project, each containing multiple versions of the same library.
